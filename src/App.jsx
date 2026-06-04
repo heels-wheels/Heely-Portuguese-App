@@ -1764,7 +1764,10 @@ function FamilyProgress({ currentProfileId }) {
     
     const jackXP = p.id === "jack" ? (sharedLB.jack?.jackXP || jackXPShared) : 0;
     const jackStreak = p.id === "jack" ? jackStreakShared : 0;
-    const pct = Math.round((progress.phrasesCorrect / TOTAL_PHRASES) * 100);
+    const MAX_JACK_XP = 1440;
+    const pct = p.id === "jack"
+      ? Math.min(100, Math.round((jackXP / MAX_JACK_XP) * 100))
+      : Math.round((progress.phrasesCorrect / TOTAL_PHRASES) * 100);
     const mult = XP_MULTIPLIER[p.id] || 1;
     const baseScore = progress.quizzesCompleted * 10 + progress.phrasesCorrect * 2;
     const score = p.id === "jack" ? Math.round((baseScore + jackXP) * mult) : baseScore;
@@ -1790,7 +1793,7 @@ function FamilyProgress({ currentProfileId }) {
               <div style={{ height: "100%", width: p.pct + "%", background: p.color, borderRadius: 3, transition: "width 0.5s" }} />
             </div>
             <div style={{ display: "flex", gap: 10, marginTop: 4, fontSize: 11, color: C.muted }}>
-              <span>📊 {p.pct}%</span>
+              <span>📊 {p.id === "jack" ? "XP: " + p.jackXP : p.pct + "%"}</span>
               <span>🔥 {p.streak} streak</span>
               <span>✅ {p.progress.quizzesCompleted} quizzes</span>
             </div>
@@ -1861,6 +1864,18 @@ function ProfileApp({ profile, onSwitch }) {
   const [screen, setScreen] = useState("home");
   const [favorites, setFavorites] = useStorage("pt_favorites_" + pid, []);
   const [progress, setProgress] = useStorage("pt_progress_" + pid, { phrasesCorrect: 0, quizzesCompleted: 0, streak: 0, lastDaily: null });
+
+  // Sync this profile's progress to shared leaderboard on mount
+  useEffect(() => {
+    try {
+      const stored = localStorage.getItem("pt_progress_" + pid);
+      if (stored) {
+        const lb = JSON.parse(localStorage.getItem("pt_leaderboard") || "{}");
+        lb[pid] = JSON.parse(stored);
+        localStorage.setItem("pt_leaderboard", JSON.stringify(lb));
+      }
+    } catch {}
+  }, [pid]);
 
   function toggleFavorite(pt) {
     setFavorites(f => f.includes(pt) ? f.filter(x => x !== pt) : [...f, pt]);
