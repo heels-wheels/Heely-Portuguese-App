@@ -689,7 +689,7 @@ const SENTENCE_PUZZLES = [
 ];
 
 const TRIP_DATE = new Date("2026-06-25");
-const DAYS_LEFT = Math.ceil((TRIP_DATE - new Date("2026-05-31")) / 86400000);
+const DAYS_LEFT = Math.max(0, Math.ceil((TRIP_DATE - new Date()) / 86400000));
 const TOTAL_PHRASES = categories.flatMap(c => c.phrases).length;
 const STREAK_MEDALS = [
   { threshold: 3, emoji: "🔥", label: "3 streak" },
@@ -1260,6 +1260,16 @@ function JacksCorner({ onBack }) {
     }
   }, []);
 
+  // Galo greeting on open - safe at top level
+  useEffect(() => {
+    const greeting = GALO_GREETINGS[Math.floor(Math.random() * GALO_GREETINGS.length)];
+    setTimeout(() => speak(greeting), 800);
+  }, []);
+
+  // Word of day and streak badge - computed at top level
+  const wordOfDay = JACK_WORDS_OF_DAY[Math.floor(Date.now() / 86400000) % JACK_WORDS_OF_DAY.length];
+  const earnedBadge = [...STREAK_BADGES].reverse().find(b => streak.count >= b.days);
+
   function startLearn(idx) {
     setLevelIdx(idx); setLearnIdx(0); setView("learn");
     setTimeout(() => speak(JACK_LEVELS[idx].phrases[0].pt), 200);
@@ -1498,20 +1508,6 @@ function JacksCorner({ onBack }) {
   }
 
   // MAP
-  // Galo greeting on open
-  useEffect(() => {
-    if (view === "map") {
-      const greeting = GALO_GREETINGS[Math.floor(Math.random() * GALO_GREETINGS.length)];
-      setTimeout(() => speak(greeting), 500);
-    }
-  }, []);
-
-  // Word of day
-  const wordOfDay = JACK_WORDS_OF_DAY[Math.floor(Date.now() / 86400000) % JACK_WORDS_OF_DAY.length];
-
-  // Streak badge
-  const earnedBadge = [...STREAK_BADGES].reverse().find(b => streak.count >= b.days);
-
   return (
     <div>
       {confetti && <Confetti />}
@@ -1589,7 +1585,7 @@ function ChallengeEmily({ jackXP }) {
     if (stored) emilyProgress = JSON.parse(stored);
   } catch {}
   const emilyScore = emilyProgress.quizzesCompleted * 10 + emilyProgress.phrasesCorrect * 2;
-  const jackScore = jackXP * 2;
+  const jackScore = jackXP * XP_MULTIPLIER.jack;
   const jackWinning = jackScore >= emilyScore;
   return (
     <div style={{ marginTop: 10, padding: "14px 16px", background: jackWinning ? "#ecfdf5" : "#fef2f2", border: "2px solid " + (jackWinning ? "#16a34a44" : "#dc262644"), borderRadius: 14 }}>
@@ -1688,16 +1684,23 @@ function FamilyProgress({ currentProfileId }) {
   const data = profiles.map(p => {
     let progress = { phrasesCorrect: 0, quizzesCompleted: 0, streak: 0 };
     let jackXP = 0;
+    let jackStreak = 0;
     try {
       const stored = localStorage.getItem("pt_progress_" + p.id);
       if (stored) progress = JSON.parse(stored);
-      const xp = localStorage.getItem("jack_xp_" + p.id);
-      if (xp) jackXP = JSON.parse(xp);
+      if (p.id === "jack") {
+        const xp = localStorage.getItem("jack_xp");
+        if (xp) jackXP = JSON.parse(xp);
+        const st = localStorage.getItem("jack_streak");
+        if (st) jackStreak = (JSON.parse(st) || {}).count || 0;
+      }
     } catch {}
     const pct = Math.round((progress.phrasesCorrect / TOTAL_PHRASES) * 100);
-    const xpMult = XP_MULTIPLIER[p.id] || 1;
-    const score = progress.quizzesCompleted * 10 + progress.phrasesCorrect * 2 + (p.id === "jack" ? jackXP : 0);
-    return { ...p, progress, pct, jackXP, score };
+    const mult = XP_MULTIPLIER[p.id] || 1;
+    const baseScore = progress.quizzesCompleted * 10 + progress.phrasesCorrect * 2;
+    const score = p.id === "jack" ? (baseScore + jackXP) * mult : baseScore;
+    const streak = p.id === "jack" ? jackStreak : (progress.streak || 0);
+    return { ...p, progress, pct, jackXP, score, streak };
   }).sort((a, b) => b.score - a.score);
 
   return (
@@ -1719,7 +1722,7 @@ function FamilyProgress({ currentProfileId }) {
             </div>
             <div style={{ display: "flex", gap: 10, marginTop: 4, fontSize: 11, color: C.muted }}>
               <span>📊 {p.pct}%</span>
-              <span>🔥 {p.progress.streak} streak</span>
+              <span>🔥 {p.streak} streak</span>
               <span>✅ {p.progress.quizzesCompleted} quizzes</span>
             </div>
           </div>
