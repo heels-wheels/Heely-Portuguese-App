@@ -313,6 +313,13 @@ const categories = [
     { pt: "De nada", en: "You're welcome", pr: "deh NAH-dah", tip: "Natural reply to obrigado/a" },
     { pt: "Desculpe", en: "Excuse me / Sorry", pr: "desh-KOOL-peh", tip: "For attention or apology" },
     { pt: "Sim / Não", en: "Yes / No", pr: "seem / now (nasal)", tip: "Não sounds nasal — like 'now' through your nose" },
+    { pt: "Com licença", en: "Pardon me / May I", pr: "kom lee-SEN-sah", tip: "More formal than desculpe — use to pass through a crowd" },
+    { pt: "Até logo", en: "See you later", pr: "ah-TEH LOH-goo", tip: "Casual goodbye — you'll hear this constantly" },
+    { pt: "Até amanhã", en: "See you tomorrow", pr: "ah-TEH ah-mahn-YAH", tip: "Common farewell at end of evening" },
+    { pt: "Tudo bem?", en: "Everything okay?", pr: "TOO-doo bem", tip: "Very common greeting — reply with 'tudo bem' or 'tudo bom'" },
+    { pt: "Tudo bem!", en: "All good!", pr: "TOO-doo bem", tip: "The perfect reply to tudo bem — locals love it" },
+    { pt: "Com prazer", en: "With pleasure", pr: "kom prah-ZAIR", tip: "A warm alternative to de nada" },
+    { pt: "Saúde!", en: "Cheers! / Bless you!", pr: "sah-OO-deh", tip: "Use when toasting or when someone sneezes" },
   ]},
   { id: "getting_around", label: "Getting Around", emoji: "🗺️", phrases: [
     { pt: "Onde fica...?", en: "Where is...?", pr: "ON-deh FEE-kah", tip: "Onde fica o castelo? = Where is the castle?" },
@@ -321,6 +328,14 @@ const categories = [
     { pt: "Quanto custa?", en: "How much does it cost?", pr: "KWAN-too KOOSH-tah", tip: "Works for taxis, tickets, markets" },
     { pt: "Está longe?", en: "Is it far?", pr: "esh-TAH LON-zheh", tip: "Handy before committing to a walk" },
     { pt: "Está longe daqui?", en: "Is it far from here?", pr: "esh-TAH LON-zheh dah-KEE", tip: "More specific than está longe" },
+    { pt: "Como se vai para...?", en: "How do I get to...?", pr: "KOH-moo seh VY PAH-rah", tip: "Great for asking directions to landmarks" },
+    { pt: "Pode repetir?", en: "Can you repeat?", pr: "POD-eh reh-peh-TEER", tip: "Short and polite — use freely" },
+    { pt: "Chame um táxi", en: "Call a taxi", pr: "SHAH-meh oom TAK-see", tip: "Uber also works well in Portugal" },
+    { pt: "Pare aqui, por favor", en: "Stop here, please", pr: "PAH-reh ah-KEE poor fah-VOR", tip: "For taxis and rideshares" },
+    { pt: "A que horas abre?", en: "What time does it open?", pr: "ah keh OH-rash AH-breh", tip: "Many Portuguese shops close for lunch 1-3pm" },
+    { pt: "A que horas fecha?", en: "What time does it close?", pr: "ah keh OH-rash FEH-shah", tip: "Essential — Sunday hours vary widely" },
+    { pt: "Há um parque de estacionamento?", en: "Is there a parking lot?", pr: "ah oom PAR-keh deh esh-tah-syoh-nah-MEN-too", tip: "Lisbon and Évora have underground car parks" },
+    { pt: "Onde posso comprar um bilhete?", en: "Where can I buy a ticket?", pr: "ON-deh POH-soo kom-PRAR oom beel-YEH-teh", tip: "For museums, castles, and transit" },
   ]},
   { id: "food_drink", label: "Food & Drink", emoji: "🍷", phrases: [
     { pt: "Uma mesa para dois, por favor", en: "A table for two, please", pr: "OO-mah MAY-zah PAH-rah doysh", tip: "Change dois for your number" },
@@ -332,6 +347,15 @@ const categories = [
     { pt: "A conta, por favor", en: "The bill, please", pr: "ah KON-tah poor fah-VOR", tip: "Just say it — no need to wave" },
     { pt: "Estava delicioso", en: "It was delicious", pr: "esh-TAH-vah deh-lee-SYOH-zoo", tip: "Watch the server light up" },
     { pt: "Sardinhas assadas, por favor", en: "Grilled sardines, please", pr: "sar-DEEN-yash ah-SAH-dash", tip: "Peak season June–August 🐟" },
+    { pt: "O prato do dia", en: "The dish of the day", pr: "oo PRAH-too doo JEE-ah", tip: "Always the best value and usually the freshest" },
+    { pt: "Tem opção vegetariana?", en: "Do you have a vegetarian option?", pr: "tem op-SOW veh-zheh-tah-ree-AH-nah", tip: "Portugal is meat-heavy — worth asking" },
+    { pt: "Sem glúten, por favor", en: "Gluten free, please", pr: "sem GLOO-ten poor fah-VOR", tip: "Most places in Portugal understand this now" },
+    { pt: "Uma imperial, por favor", en: "A draft beer, please", pr: "OO-mah eem-peh-ree-AHL", tip: "Imperial = small draft beer in southern Portugal" },
+    { pt: "O bacalhau", en: "The salt cod", pr: "oo bah-kahl-YOW", tip: "Portugal's national dish — said to have 365 recipes" },
+    { pt: "O pastel de nata", en: "The custard tart", pr: "oo pash-TEL deh NAH-tah", tip: "Eat one warm from the oven — life changing" },
+    { pt: "Mais um, por favor", en: "One more, please", pr: "mysh oom poor fah-VOR", tip: "For wine, coffee, pastéis de nata..." },
+    { pt: "Estamos a celebrar!", en: "We're celebrating!", pr: "esh-TAH-moosh ah seh-leh-BRAR", tip: "Say this and watch the hospitality multiply" },
+    { pt: "O serviço está incluído?", en: "Is service included?", pr: "oo ser-VEE-soo esh-TAH een-kloo-EE-doo", tip: "Tipping 5-10% is appreciated but not mandatory" },
   ]},
   { id: "shopping", label: "Shopping", emoji: "🏺", phrases: [
     { pt: "Posso ver?", en: "Can I see it?", pr: "POH-soo vair", tip: "Before picking up from a display" },
@@ -339,6 +363,13 @@ const categories = [
     { pt: "É muito caro", en: "It's too expensive", pr: "eh MWEE-too KAH-roo", tip: "Said with a smile, not an insult" },
     { pt: "Aceita cartão?", en: "Do you accept card?", pr: "ah-SAY-tah kar-TOW (nasal)", tip: "Worth checking at smaller shops" },
     { pt: "Embrulha para presente?", en: "Can you gift wrap it?", pr: "em-BROOL-yah PAH-rah preh-ZEN-teh", tip: "Artisan shops do this beautifully" },
+    { pt: "Tem em tamanho maior?", en: "Do you have a larger size?", pr: "tem em tah-MAN-yoo my-OR", tip: "Maior = bigger, menor = smaller" },
+    { pt: "Qual é o preço?", en: "What is the price?", pr: "kwahl eh oo PRAY-soo", tip: "More specific than quanto custa" },
+    { pt: "Tem desconto?", en: "Do you have a discount?", pr: "tem desh-KON-too", tip: "Worth asking at markets and smaller shops" },
+    { pt: "Levo este", en: "I'll take this one", pr: "LEH-voo ESH-teh", tip: "When you've made your decision" },
+    { pt: "É típico de Portugal?", en: "Is it typical of Portugal?", pr: "eh TEE-pee-koo deh poor-too-GAL", tip: "Great for finding authentic souvenirs" },
+    { pt: "Tem um saco?", en: "Do you have a bag?", pr: "tem oom SAH-koo", tip: "Plastic bags cost extra in Portugal" },
+    { pt: "A que horas fecham?", en: "What time do you close?", pr: "ah keh OH-rash FEH-shahm", tip: "Évora shops often close 1-3pm for lunch" },
   ]},
   { id: "numbers", label: "Numbers", emoji: "🔢", phrases: [
     { pt: "Um / Uma", en: "One", pr: "oom / OO-mah", tip: "Um (masc) / Uma (fem)" },
@@ -351,6 +382,12 @@ const categories = [
     { pt: "Oito", en: "Eight", pr: "OY-too", tip: "Rhymes with boy-too" },
     { pt: "Nove", en: "Nine", pr: "NOV-eh", tip: "Like novel cut short" },
     { pt: "Dez", en: "Ten", pr: "desh", tip: "Final z sounds like sh" },
+    { pt: "Onze", en: "Eleven", pr: "ON-zeh", tip: "Stress on first syllable" },
+    { pt: "Doze", en: "Twelve", pr: "DOH-zeh", tip: "Like 'doze' with a z" },
+    { pt: "Vinte", en: "Twenty", pr: "VEEN-teh", tip: "Used for prices, addresses, ages" },
+    { pt: "Trinta", en: "Thirty", pr: "TREEN-tah", tip: "Useful for speed limits and ages" },
+    { pt: "Cinquenta", en: "Fifty", pr: "seen-KWEN-tah", tip: "Common in prices" },
+    { pt: "Cem / Cento", en: "One hundred", pr: "sem / SEN-too", tip: "Cem alone, cento before another number" },
   ]},
   { id: "emergencies", label: "Just in Case", emoji: "🆘", phrases: [
     { pt: "Preciso de ajuda", en: "I need help", pr: "preh-SEE-zoo deh ah-ZHOO-dah", tip: "Clear and direct" },
@@ -358,6 +395,13 @@ const categories = [
     { pt: "Não percebo", en: "I don't understand", pr: "now pair-SEH-boo", tip: "More natural than não entendo" },
     { pt: "Pode repetir mais devagar?", en: "Repeat more slowly?", pr: "POD-eh reh-peh-TEER mysh deh-vah-GAR", tip: "They will — Portuguese are patient" },
     { pt: "Chame uma ambulância", en: "Call an ambulance", pr: "SHAH-meh OO-mah am-boo-LAN-syah", tip: "Emergency: 112" },
+    { pt: "Onde é o hospital?", en: "Where is the hospital?", pr: "ON-deh eh oo osh-pee-TAHL", tip: "Hospital signs use the H symbol across Portugal" },
+    { pt: "Perdi o meu passaporte", en: "I lost my passport", pr: "pair-DEE oo MEH-oo pah-sah-POR-teh", tip: "Report to local police (GNR) and US Embassy Lisbon" },
+    { pt: "Preciso de um médico", en: "I need a doctor", pr: "preh-SEE-zoo deh oom MEH-dee-koo", tip: "Farmácias (pharmacies) can also help with minor issues" },
+    { pt: "Tenho alergia a...", en: "I am allergic to...", pr: "TEN-yoo ah-lair-ZHEE-ah ah", tip: "Essential to know — follow with the allergen" },
+    { pt: "Roubaram-me", en: "I've been robbed", pr: "roh-bah-RAHM-meh", tip: "Go to PSP (police) in cities or GNR in rural areas" },
+    { pt: "Onde é a esquadra?", en: "Where is the police station?", pr: "ON-deh eh ah esh-KWAH-drah", tip: "PSP = city police, GNR = national guard" },
+    { pt: "O número de emergência é 112", en: "The emergency number is 112", pr: "oo NOO-meh-roo deh eh-mair-ZHEN-syah eh oom oom doysh", tip: "112 works across all of Europe" },
   ]},
 ];
 
@@ -757,10 +801,16 @@ const STREAK_MEDALS = [
   { threshold: 8, emoji: "🌟", label: "8 streak" },
 ];
 function getDailyPhrases(all) {
-  const seed = Math.floor(Date.now() / 86400000);
-  const seeded = [...all].map((p, i) => ({ p, sort: ((i + 1) * seed * 2654435761) % 4294967296 }));
-  seeded.sort((a, b) => a.sort - b.sort);
-  return seeded.map(x => x.p).slice(0, 5);
+  const day = Math.floor(Date.now() / 86400000);
+  // Simple seeded shuffle using day as seed
+  const arr = [...all];
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.abs((day * 1013904223 + i * 1664525) % (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  // Take 5 phrases starting at a day-based offset so they change daily
+  const offset = day % Math.max(1, arr.length - 5);
+  return arr.slice(offset, offset + 5);
 }
 function getWrongs(phrase, all, field) {
   return shuffle(all.filter(p => p[field] !== phrase[field])).slice(0, 3).map(p => p[field]);
@@ -1782,19 +1832,21 @@ function FamilyProgress({ currentProfileId }) {
       </div>
       {data.map((p, rank) => (
         <div key={p.id} style={{ background: p.id === currentProfileId ? p.bg : "#f9fafb", border: "2px solid " + (p.id === currentProfileId ? p.color + "66" : "#e5e7eb"), borderRadius: 14, padding: "12px 14px", marginBottom: 10, display: "flex", alignItems: "center", gap: 12 }}>
-          <div style={{ fontSize: 24, width: 32, textAlign: "center" }}>{rank === 0 ? "🥇" : rank === 1 ? "🥈" : "🥉"}</div>
-          <img src={p.img} alt={p.name} style={{ width: 40, height: 40, borderRadius: "50%", objectFit: "cover", border: "2px solid " + p.color + "44" }} />
-          <div style={{ flex: 1 }}>
-            <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 4 }}>
-              <span style={{ fontSize: 15, fontWeight: "700", color: p.color }}>{p.name} {p.id === "jack" ? "⚡2x" : ""}</span>
-              <span style={{ fontSize: 12, color: C.muted }}>{p.score} pts</span>
+          <div style={{ fontSize: 28, width: 36, textAlign: "center", flexShrink: 0 }}>
+            {rank === 0 ? "🥇" : rank === 1 ? "🥈" : "🥉"}
+          </div>
+          <img src={p.img} alt={p.name} style={{ width: 44, height: 44, borderRadius: "50%", objectFit: "cover", border: "2.5px solid " + p.color, flexShrink: 0 }} />
+          <div style={{ flex: 1, minWidth: 0 }}>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 6 }}>
+              <span style={{ fontSize: 16, fontWeight: "800", color: p.color }}>{p.name}{p.id === "jack" ? " ⚡" : ""}</span>
+              <span style={{ fontSize: 14, fontWeight: "700", color: C.text }}>{p.score} pts</span>
             </div>
-            <div style={{ height: 6, background: "#e5e7eb", borderRadius: 3, overflow: "hidden" }}>
-              <div style={{ height: "100%", width: p.pct + "%", background: p.color, borderRadius: 3, transition: "width 0.5s" }} />
+            <div style={{ height: 8, background: "#e5e7eb", borderRadius: 4, overflow: "hidden", marginBottom: 6 }}>
+              <div style={{ height: "100%", width: Math.max(2, p.pct) + "%", background: "linear-gradient(90deg," + p.color + "cc," + p.color + ")", borderRadius: 4, transition: "width 0.6s ease" }} />
             </div>
-            <div style={{ display: "flex", gap: 10, marginTop: 4, fontSize: 11, color: C.muted }}>
-              <span>📊 {p.id === "jack" ? "XP: " + p.jackXP : p.pct + "%"}</span>
-              <span>🔥 {p.streak} streak</span>
+            <div style={{ display: "flex", gap: 12, fontSize: 11, color: C.muted }}>
+              <span>📊 {p.id === "jack" ? p.jackXP + " XP" : p.pct + "%"}</span>
+              <span>🔥 {p.streak} day streak</span>
               <span>✅ {p.progress.quizzesCompleted} quizzes</span>
             </div>
           </div>
