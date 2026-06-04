@@ -49,7 +49,7 @@ function useStorage(key, initial) {
 }
 
 // ── SPEECH ───────────────────────────────────────────────────────────────────
-function useSpeech() {
+function useSpeech(jackMode) {
   const [speaking, setSpeaking] = useState(false);
   const voiceRef = useRef(null);
   useEffect(() => {
@@ -67,13 +67,15 @@ function useSpeech() {
     const clean = text.split(" / ")[0].replace(/\.\.\./g, "").trim();
     window.speechSynthesis.cancel();
     const u = new SpeechSynthesisUtterance(clean);
-    u.lang = "pt-PT"; u.rate = 0.82; u.pitch = 1;
+    u.lang = "pt-PT";
+    u.rate = jackMode ? 0.75 : 0.70;
+    u.pitch = jackMode ? 1.4 : 1.0;
     if (voiceRef.current) u.voice = voiceRef.current;
     u.onstart = () => setSpeaking(true);
     u.onend = () => setSpeaking(false);
     u.onerror = () => setSpeaking(false);
     window.speechSynthesis.speak(u);
-  }, []);
+  }, [jackMode]);
   return { speak, speaking };
 }
 
@@ -420,6 +422,66 @@ const JACK_LEVELS = [
     { pt: "A torre", en: "The tower", pr: "ah TOH-reh", emoji: "🗼" },
     { pt: "Portugal é fixe!", en: "Portugal is cool!", pr: "por-too-GAL eh FEESH", emoji: "🇵🇹" },
   ]},
+  { id: "colors", label: "Colors & Shapes", emoji: "🎨", color: "#ec4899", bg: "#fdf2f8", galo: "excited", phrases: [
+    { pt: "Vermelho", en: "Red", pr: "ver-MEL-yoo", emoji: "🔴" },
+    { pt: "Azul", en: "Blue", pr: "ah-ZOOL", emoji: "🔵" },
+    { pt: "Verde", en: "Green", pr: "VAIR-deh", emoji: "🟢" },
+    { pt: "Amarelo", en: "Yellow", pr: "ah-mah-REL-oo", emoji: "🟡" },
+    { pt: "Cor-de-rosa", en: "Pink", pr: "kor deh ROH-zah", emoji: "🩷" },
+    { pt: "O círculo", en: "The circle", pr: "oo SEER-koo-loo", emoji: "⭕" },
+    { pt: "O quadrado", en: "The square", pr: "oo kwah-DRAH-doo", emoji: "🟥" },
+    { pt: "A estrela", en: "The star", pr: "ah esh-TREH-lah", emoji: "⭐" },
+  ]},
+  { id: "airport", label: "At the Airport", emoji: "✈️", color: "#0ea5e9", bg: "#f0f9ff", galo: "excited", phrases: [
+    { pt: "O avião", en: "The airplane", pr: "oo ah-vyOW", emoji: "✈️" },
+    { pt: "O passaporte", en: "The passport", pr: "oo pah-sah-POR-teh", emoji: "📘" },
+    { pt: "A mala", en: "The suitcase", pr: "ah MAH-lah", emoji: "🧳" },
+    { pt: "Vamos embora!", en: "Let's go!", pr: "VAH-moosh em-BOH-rah", emoji: "🚀" },
+    { pt: "Onde é o gate?", en: "Where is the gate?", pr: "ON-deh eh oo gate", emoji: "🚪" },
+    { pt: "O bilhete", en: "The ticket", pr: "oo beel-YEH-teh", emoji: "🎫" },
+    { pt: "Chegámos!", en: "We arrived!", pr: "sheh-GAH-moosh", emoji: "🎉" },
+    { pt: "Portugal, vamos lá!", en: "Portugal, here we go!", pr: "por-too-GAL VAH-moosh lah", emoji: "🇵🇹" },
+  ]},
+  { id: "sports", label: "Sports & Games", emoji: "⚽", color: "#16a34a", bg: "#f0fdf4", galo: "excited", phrases: [
+    { pt: "O futebol", en: "Soccer / Football", pr: "oo foo-teh-BOL", emoji: "⚽" },
+    { pt: "Golo!", en: "Goal!", pr: "GOH-loo", emoji: "🥅" },
+    { pt: "Correr", en: "To run", pr: "koo-HAIR", emoji: "🏃" },
+    { pt: "Nadar", en: "To swim", pr: "nah-DAR", emoji: "🏊" },
+    { pt: "A bicicleta", en: "The bicycle", pr: "ah bee-see-KLEH-tah", emoji: "🚴" },
+    { pt: "Ganhámos!", en: "We won!", pr: "gahn-YAH-moosh", emoji: "🏆" },
+    { pt: "Jogar", en: "To play", pr: "zhoo-GAR", emoji: "🎮" },
+    { pt: "O campeão", en: "The champion", pr: "oo kam-pyOW", emoji: "🥇" },
+  ]},
+  { id: "weather", label: "Weather & Nature", emoji: "🌦️", color: "#7c3aed", bg: "#f5f3ff", galo: "thinking", phrases: [
+    { pt: "O sol", en: "The sun", pr: "oo sol", emoji: "☀️" },
+    { pt: "A chuva", en: "The rain", pr: "ah SHOO-vah", emoji: "🌧️" },
+    { pt: "O vento", en: "The wind", pr: "oo VEN-too", emoji: "💨" },
+    { pt: "Está quente!", en: "It's hot!", pr: "esh-TAH KEN-teh", emoji: "🥵" },
+    { pt: "Está frio!", en: "It's cold!", pr: "esh-TAH FREE-oo", emoji: "🥶" },
+    { pt: "A montanha", en: "The mountain", pr: "ah mon-TAN-yah", emoji: "⛰️" },
+    { pt: "O rio", en: "The river", pr: "oo REE-oo", emoji: "🏞️" },
+    { pt: "As nuvens", en: "The clouds", pr: "ash NOO-vens", emoji: "☁️" },
+  ]},
+  { id: "feelings", label: "Feelings", emoji: "😄", color: "#f59e0b", bg: "#fffbeb", galo: "happy", phrases: [
+    { pt: "Estou feliz!", en: "I'm happy!", pr: "esh-TOH feh-LEESH", emoji: "😄" },
+    { pt: "Estou com fome!", en: "I'm hungry!", pr: "esh-TOH kom FOH-meh", emoji: "😋" },
+    { pt: "Estou cansado!", en: "I'm tired!", pr: "esh-TOH kan-SAH-doo", emoji: "😴" },
+    { pt: "Que fixe!", en: "How cool!", pr: "keh FEESH", emoji: "😎" },
+    { pt: "Não acredito!", en: "I can't believe it!", pr: "now ah-kreh-DEE-too", emoji: "😱" },
+    { pt: "Adoro isto!", en: "I love this!", pr: "ah-DOH-roo EESH-too", emoji: "❤️" },
+    { pt: "Estou com saudades", en: "I miss home", pr: "esh-TOH kom sow-DAH-desh", emoji: "🥺" },
+    { pt: "Incrível!", en: "Incredible!", pr: "een-KREE-vel", emoji: "🤩" },
+  ]},
+  { id: "superheroes", label: "Superheroes", emoji: "🦸", color: "#dc2626", bg: "#fef2f2", galo: "cheer", phrases: [
+    { pt: "O super-herói", en: "The superhero", pr: "oo SOO-per eh-ROY", emoji: "🦸" },
+    { pt: "O poder", en: "The power", pr: "oo poh-DAIR", emoji: "⚡" },
+    { pt: "Voar", en: "To fly", pr: "voo-AR", emoji: "🦅" },
+    { pt: "Invisível", en: "Invisible", pr: "een-vee-ZEE-vel", emoji: "👻" },
+    { pt: "Super-forte!", en: "Super strong!", pr: "SOO-per FOR-teh", emoji: "💪" },
+    { pt: "Salvar o mundo!", en: "Save the world!", pr: "sal-VAR oo MOON-doo", emoji: "🌍" },
+    { pt: "O vilão", en: "The villain", pr: "oo vee-LOW", emoji: "😈" },
+    { pt: "Sou um herói!", en: "I am a hero!", pr: "soh oom eh-ROY", emoji: "🏆" },
+  ]},
 ];
 
 const JACK_PRAISE = [
@@ -428,6 +490,33 @@ const JACK_PRAISE = [
   { text: "Muito bem!", sub: "Very good! 🔥", mood: "cheer" },
   { text: "Perfeito!", sub: "Perfect! 💎", mood: "excited" },
   { text: "Excelente!", sub: "Excellent! 🏆", mood: "cheer" },
+  { text: "Lendário!", sub: "LEGENDARY! 🔥🏆🎉", mood: "cheer" },
+];
+
+const GALO_GREETINGS = [
+  "Olá Jack! Vamos aprender!",
+  "Bem-vindo de volta!",
+  "Estás pronto?",
+  "Vamos lá, herói!",
+  "Hoje vais ser incrível!",
+  "Portugal precisa de ti!",
+  "Vamos conquistar o mundo!",
+];
+
+const JACK_WORDS_OF_DAY = [
+  { pt: "Fixe!", en: "Cool!", pr: "FEESH", emoji: "😎" },
+  { pt: "Bestial!", en: "Awesome!", pr: "besh-TYAHL", emoji: "🤩" },
+  { pt: "Espetacular!", en: "Spectacular!", pr: "esh-peh-tah-koo-LAR", emoji: "✨" },
+  { pt: "Fantástico!", en: "Fantastic!", pr: "fan-TASH-tee-koo", emoji: "🌟" },
+  { pt: "Vamos!", en: "Let's go!", pr: "VAH-moosh", emoji: "🚀" },
+  { pt: "Incrível!", en: "Incredible!", pr: "een-KREE-vel", emoji: "💥" },
+  { pt: "Campeão!", en: "Champion!", pr: "kam-pyOW", emoji: "🏆" },
+];
+
+const STREAK_BADGES = [
+  { days: 3, emoji: "🔥", label: "3 Day Streak!", color: "#f59e0b" },
+  { days: 5, emoji: "⚡", label: "5 Day Warrior!", color: "#6366f1" },
+  { days: 7, emoji: "🏆", label: "7 Day Legend!", color: "#10b981" },
 ];
 const JACK_OOPS = [
   { text: "Quase!", sub: "So close! Try again 💪", mood: "sad" },
@@ -436,6 +525,7 @@ const JACK_OOPS = [
 
 const JACK_XP = 10;
 const XP_TO_NEXT = 50;
+const XP_MULTIPLIER = { brant: 1, emily: 1, jack: 2 };
 
 const SCENARIOS = [
   { id: "restaurant", title: "Restaurant in Évora", emoji: "🍽️", location: "Évora",
@@ -608,7 +698,9 @@ const STREAK_MEDALS = [
 ];
 function getDailyPhrases(all) {
   const seed = Math.floor(Date.now() / 86400000);
-  return [...all].sort((a, b) => ((a.pt.charCodeAt(0) * seed) % 997) - ((b.pt.charCodeAt(0) * seed) % 997)).slice(0, 5);
+  const seeded = [...all].map((p, i) => ({ p, sort: ((i + 1) * seed * 2654435761) % 4294967296 }));
+  seeded.sort((a, b) => a.sort - b.sort);
+  return seeded.map(x => x.p).slice(0, 5);
 }
 function getWrongs(phrase, all, field) {
   return shuffle(all.filter(p => p[field] !== phrase[field])).slice(0, 3).map(p => p[field]);
@@ -1112,6 +1204,12 @@ function TranslationMode() {
           </div>
           {direction === "en->pt" && result.pr && <div style={{ fontSize: 11, color: C.green, fontFamily: "monospace", marginBottom: 6 }}>🔊 {result.pr}</div>}
           {direction === "en->pt" && result.tip && <div style={{ fontSize: 12, color: "#92400e", background: C.goldLight, borderRadius: 8, padding: "8px 10px", marginTop: 6 }}>💡 {result.tip}</div>}
+          <button
+            onClick={() => { setInput(""); setResult(null); setNotFound(false); }}
+            style={{ marginTop: 12, width: "100%", padding: "10px", background: "#f3f4f6", border: "1.5px solid " + C.border, borderRadius: 10, cursor: "pointer", fontFamily: "inherit", fontSize: 13, color: C.text, fontWeight: "600" }}
+          >
+            🔍 Translate Another
+          </button>
         </Card>
       )}
       {!result && (
@@ -1149,7 +1247,7 @@ function JacksCorner({ onBack }) {
   const [quiz, setQuiz] = useState(null);
   const [celebration, setCelebration] = useState(null);
   const [confetti, setConfetti] = useState(false);
-  const { speak, speaking } = useSpeech();
+  const { speak, speaking } = useSpeech(true);
   const playSound = useSound();
   const totalLevel = Math.floor(xp / XP_TO_NEXT) + 1;
 
@@ -1288,10 +1386,13 @@ function JacksCorner({ onBack }) {
     const { phrases, xpEarned, lives, levelIdx: li } = quiz;
     const pct = Math.round((xpEarned / (phrases.length * JACK_XP)) * 100);
     const passed = xpEarned >= phrases.length * JACK_XP * 0.6 && lives > 0;
+    const isLegendary = pct === 100 && lives === 3;
     return (
       <div style={{ textAlign: "center", padding: "24px 0" }}>
-        <div style={{ fontSize: 60, marginBottom: 12 }}>{passed ? (pct === 100 ? "🏆" : "⭐") : "💪"}</div>
-        <GaloSays mood={passed ? "cheer" : "thinking"} message={passed ? "Incrível! You crushed it! 🎉" : "Não faz mal! Try again — you'll get it!"} color={passed ? C.green : C.gold} />
+        {isLegendary && <Confetti />}
+        <div style={{ fontSize: isLegendary ? 80 : 60, marginBottom: 12, animation: isLegendary ? "bounce 0.4s ease infinite alternate" : "none" }}>{isLegendary ? "👑" : passed ? "⭐" : "💪"}</div>
+        {isLegendary && <div style={{ fontSize: 28, color: "#f59e0b", fontWeight: "900", marginBottom: 8, textShadow: "0 2px 8px #f59e0b44" }}>LENDÁRIO! 🔥🏆🎉</div>}
+        <GaloSays mood={isLegendary ? "cheer" : passed ? "cheer" : "thinking"} message={isLegendary ? "LENDÁRIO! Perfeito! És incrível! 👑🔥" : passed ? "Incrível! You crushed it! 🎉" : "Não faz mal! Try again — you'll get it!"} color={isLegendary ? "#f59e0b" : passed ? C.green : C.gold} />
         <div style={{ display: "flex", justifyContent: "center", gap: 24, marginBottom: 24 }}>
           <div style={{ textAlign: "center" }}>
             <div style={{ fontSize: 26, color: C.gold, fontWeight: "800" }}>+{xpEarned}</div>
@@ -1397,6 +1498,20 @@ function JacksCorner({ onBack }) {
   }
 
   // MAP
+  // Galo greeting on open
+  useEffect(() => {
+    if (view === "map") {
+      const greeting = GALO_GREETINGS[Math.floor(Math.random() * GALO_GREETINGS.length)];
+      setTimeout(() => speak(greeting), 500);
+    }
+  }, []);
+
+  // Word of day
+  const wordOfDay = JACK_WORDS_OF_DAY[Math.floor(Date.now() / 86400000) % JACK_WORDS_OF_DAY.length];
+
+  // Streak badge
+  const earnedBadge = [...STREAK_BADGES].reverse().find(b => streak.count >= b.days);
+
   return (
     <div>
       {confetti && <Confetti />}
@@ -1416,10 +1531,21 @@ function JacksCorner({ onBack }) {
           </div>
         </div>
         <ProgressBar value={xp % XP_TO_NEXT} max={XP_TO_NEXT} color="#6366f1" height={8} />
-        <div style={{ display: "flex", gap: 14, marginTop: 10, fontSize: 12, flexWrap: "wrap" }}>
+        <div style={{ display: "flex", gap: 14, marginTop: 10, fontSize: 12, flexWrap: "wrap", alignItems: "center" }}>
           <span style={{ color: "#6366f1", fontWeight: "600" }}>🔥 {streak.count} day streak</span>
           <span style={{ color: C.muted }}>🌍 {unlocked.length}/{JACK_LEVELS.length} worlds</span>
+          {earnedBadge && <span style={{ color: earnedBadge.color, fontWeight: "700" }}>{earnedBadge.emoji} {earnedBadge.label}</span>}
         </div>
+      </div>
+
+      <div onClick={() => speak(wordOfDay.pt)} style={{ marginBottom: 14, padding: "12px 16px", background: "linear-gradient(135deg,#fef3dc,#fffbeb)", border: "2px solid #f59e0b44", borderRadius: 14, cursor: "pointer", display: "flex", alignItems: "center", gap: 12 }}>
+        <div style={{ fontSize: 32 }}>{wordOfDay.emoji}</div>
+        <div style={{ flex: 1 }}>
+          <div style={{ fontSize: 10, color: "#92400e", fontWeight: "700", letterSpacing: 2, textTransform: "uppercase", marginBottom: 2 }}>🐓 Galo's Word of the Day</div>
+          <div style={{ fontSize: 20, color: C.text, fontWeight: "800" }}>{wordOfDay.pt}</div>
+          <div style={{ fontSize: 13, color: C.muted }}>{wordOfDay.en} · <span style={{ fontFamily: "monospace", color: "#16a34a" }}>{wordOfDay.pr}</span></div>
+        </div>
+        <div style={{ fontSize: 11, color: C.muted }}>Tap to hear!</div>
       </div>
       <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
         {JACK_LEVELS.map((level, i) => {
@@ -1450,11 +1576,43 @@ function JacksCorner({ onBack }) {
           <div style={{ fontSize: 11, color: C.muted }}>Replay the intro</div>
         </div>
       </button>
+
+      <ChallengeEmily jackXP={xp} />
+    </div>
+  );
+}
+
+function ChallengeEmily({ jackXP }) {
+  let emilyProgress = { quizzesCompleted: 0, phrasesCorrect: 0 };
+  try {
+    const stored = localStorage.getItem("pt_progress_emily");
+    if (stored) emilyProgress = JSON.parse(stored);
+  } catch {}
+  const emilyScore = emilyProgress.quizzesCompleted * 10 + emilyProgress.phrasesCorrect * 2;
+  const jackScore = jackXP * 2;
+  const jackWinning = jackScore >= emilyScore;
+  return (
+    <div style={{ marginTop: 10, padding: "14px 16px", background: jackWinning ? "#ecfdf5" : "#fef2f2", border: "2px solid " + (jackWinning ? "#16a34a44" : "#dc262644"), borderRadius: 14 }}>
+      <div style={{ fontSize: 11, fontWeight: "700", textTransform: "uppercase", letterSpacing: 1, color: jackWinning ? "#16a34a" : "#dc2626", marginBottom: 8 }}>
+        {jackWinning ? "🏆 You're beating Emily!" : "😤 Emily is ahead!"}
+      </div>
+      <div style={{ display: "flex", justifyContent: "space-between", fontSize: 13 }}>
+        <div style={{ textAlign: "center" }}>
+          <div style={{ fontSize: 22, fontWeight: "800", color: "#6366f1" }}>{jackScore}</div>
+          <div style={{ color: C.muted }}>Jack ⚡2x</div>
+        </div>
+        <div style={{ fontSize: 24, alignSelf: "center" }}>vs</div>
+        <div style={{ textAlign: "center" }}>
+          <div style={{ fontSize: 22, fontWeight: "800", color: "#db2777" }}>{emilyScore}</div>
+          <div style={{ color: C.muted }}>Emily 🌸</div>
+        </div>
+      </div>
+      {!jackWinning && <div style={{ fontSize: 12, color: "#dc2626", marginTop: 8, textAlign: "center" }}>Keep quizzing to catch up! 💪</div>}
     </div>
   );
 }
 // ── HOME ─────────────────────────────────────────────────────────────────────
-function Home({ onNavigate, progress, favorites }) {
+function Home({ onNavigate, progress, favorites, currentProfileId }) {
   const pct = Math.round((progress.phrasesCorrect / TOTAL_PHRASES) * 100);
   const dailyDone = progress.lastDaily === new Date().toDateString();
   const modes = [
@@ -1519,6 +1677,55 @@ function Home({ onNavigate, progress, favorites }) {
       <div style={{ marginTop: 16, padding: "12px 14px", background: "#eff6ff", borderRadius: 12, border: "1.5px solid #bfdbfe", fontSize: 12, color: "#1e40af", lineHeight: 1.7 }}>
         🐓 <strong>Meet Galo!</strong> He's Portugal's famous good-luck rooster — the <em>Galo de Barcelos</em>. Jack has him as his quiz buddy in Jack's Corner.
       </div>
+      <FamilyProgress currentProfileId={currentProfileId} />
+    </div>
+  );
+}
+
+// ── LEADERBOARD & FAMILY PROGRESS ───────────────────────────────────────────
+function FamilyProgress({ currentProfileId }) {
+  const profiles = PROFILES;
+  const data = profiles.map(p => {
+    let progress = { phrasesCorrect: 0, quizzesCompleted: 0, streak: 0 };
+    let jackXP = 0;
+    try {
+      const stored = localStorage.getItem("pt_progress_" + p.id);
+      if (stored) progress = JSON.parse(stored);
+      const xp = localStorage.getItem("jack_xp_" + p.id);
+      if (xp) jackXP = JSON.parse(xp);
+    } catch {}
+    const pct = Math.round((progress.phrasesCorrect / TOTAL_PHRASES) * 100);
+    const xpMult = XP_MULTIPLIER[p.id] || 1;
+    const score = progress.quizzesCompleted * 10 + progress.phrasesCorrect * 2 + (p.id === "jack" ? jackXP : 0);
+    return { ...p, progress, pct, jackXP, score };
+  }).sort((a, b) => b.score - a.score);
+
+  return (
+    <div style={{ marginTop: 20 }}>
+      <div style={{ fontSize: 14, fontWeight: "700", color: C.text, marginBottom: 12, textTransform: "uppercase", letterSpacing: 2, fontSize: 11 }}>
+        🏆 Family Leaderboard
+      </div>
+      {data.map((p, rank) => (
+        <div key={p.id} style={{ background: p.id === currentProfileId ? p.bg : "#f9fafb", border: "2px solid " + (p.id === currentProfileId ? p.color + "66" : "#e5e7eb"), borderRadius: 14, padding: "12px 14px", marginBottom: 10, display: "flex", alignItems: "center", gap: 12 }}>
+          <div style={{ fontSize: 24, width: 32, textAlign: "center" }}>{rank === 0 ? "🥇" : rank === 1 ? "🥈" : "🥉"}</div>
+          <img src={p.img} alt={p.name} style={{ width: 40, height: 40, borderRadius: "50%", objectFit: "cover", border: "2px solid " + p.color + "44" }} />
+          <div style={{ flex: 1 }}>
+            <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 4 }}>
+              <span style={{ fontSize: 15, fontWeight: "700", color: p.color }}>{p.name} {p.id === "jack" ? "⚡2x" : ""}</span>
+              <span style={{ fontSize: 12, color: C.muted }}>{p.score} pts</span>
+            </div>
+            <div style={{ height: 6, background: "#e5e7eb", borderRadius: 3, overflow: "hidden" }}>
+              <div style={{ height: "100%", width: p.pct + "%", background: p.color, borderRadius: 3, transition: "width 0.5s" }} />
+            </div>
+            <div style={{ display: "flex", gap: 10, marginTop: 4, fontSize: 11, color: C.muted }}>
+              <span>📊 {p.pct}%</span>
+              <span>🔥 {p.progress.streak} streak</span>
+              <span>✅ {p.progress.quizzesCompleted} quizzes</span>
+            </div>
+          </div>
+        </div>
+      ))}
+      <div style={{ fontSize: 11, color: C.muted, textAlign: "center", marginTop: 4 }}>⚡ Jack earns 2x points for extra effort!</div>
     </div>
   );
 }
@@ -1623,7 +1830,7 @@ function ProfileApp({ profile, onSwitch }) {
         </div>
       </div>
       <div style={{ maxWidth: 660, margin: "0 auto", padding: "20px 16px 60px" }}>
-        {screen === "home"          && <Home onNavigate={setScreen} progress={progress} favorites={favorites} />}
+        {screen === "home"          && <Home onNavigate={setScreen} progress={progress} favorites={favorites} currentProfileId={pid} />}
         {screen === "translate"     && <TranslationMode />}
         {screen === "browse"        && <BrowseMode favorites={favorites} toggleFavorite={toggleFavorite} />}
         {screen === "daily"         && <DailyChallenge onBack={() => setScreen("home")} onComplete={(c, t) => handleComplete("daily", c, t)} />}
