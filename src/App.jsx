@@ -482,6 +482,66 @@ const JACK_LEVELS = [
     { pt: "O vilão", en: "The villain", pr: "oo vee-LOW", emoji: "😈" },
     { pt: "Sou um herói!", en: "I am a hero!", pr: "soh oom eh-ROY", emoji: "🏆" },
   ]},
+  { id: "ocean", label: "Ocean & Sea", emoji: "🌊", color: "#0891b2", bg: "#ecfeff", galo: "excited", phrases: [
+    { pt: "O tubarão", en: "The shark", pr: "oo too-bah-ROW", emoji: "🦈" },
+    { pt: "A baleia", en: "The whale", pr: "ah bah-LAY-ah", emoji: "🐋" },
+    { pt: "O polvo", en: "The octopus", pr: "oo POL-voo", emoji: "🐙" },
+    { pt: "A concha", en: "The shell", pr: "ah KON-shah", emoji: "🐚" },
+    { pt: "As ondas", en: "The waves", pr: "ash ON-dash", emoji: "🌊" },
+    { pt: "Mergulhar", en: "To dive", pr: "mair-gool-YAR", emoji: "🤿" },
+    { pt: "O tesouro", en: "The treasure", pr: "oo teh-ZOH-roo", emoji: "💰" },
+    { pt: "O pirata", en: "The pirate", pr: "oo pee-RAH-tah", emoji: "🏴‍☠️" },
+  ]},
+  { id: "space", label: "Outer Space", emoji: "🚀", color: "#6366f1", bg: "#eef2ff", galo: "excited", phrases: [
+    { pt: "O foguetão", en: "The rocket", pr: "oo foh-geh-TOW", emoji: "🚀" },
+    { pt: "A lua", en: "The moon", pr: "ah LOO-ah", emoji: "🌙" },
+    { pt: "As estrelas", en: "The stars", pr: "ash esh-TREH-lash", emoji: "⭐" },
+    { pt: "O planeta", en: "The planet", pr: "oo plah-NEH-tah", emoji: "🪐" },
+    { pt: "O astronauta", en: "The astronaut", pr: "oo ash-troh-NOW-tah", emoji: "👨‍🚀" },
+    { pt: "O alien", en: "The alien", pr: "oo AH-lee-en", emoji: "👽" },
+    { pt: "A galáxia", en: "The galaxy", pr: "ah gah-LAK-syah", emoji: "🌌" },
+    { pt: "Até ao infinito!", en: "To infinity!", pr: "ah-TEH ah-oo een-fee-NEE-too", emoji: "♾️" },
+  ]},
+  { id: "dinos", label: "Dinosaurs", emoji: "🦕", color: "#16a34a", bg: "#f0fdf4", galo: "excited", phrases: [
+    { pt: "O dinossauro", en: "The dinosaur", pr: "oo dee-noh-SOW-roo", emoji: "🦕" },
+    { pt: "O T-Rex", en: "T-Rex", pr: "oo teh-REKS", emoji: "🦖" },
+    { pt: "Os ossos", en: "The bones", pr: "oosh OH-soosh", emoji: "🦴" },
+    { pt: "Extinto", en: "Extinct", pr: "eesh-TEEN-too", emoji: "💀" },
+    { pt: "O ovo", en: "The egg", pr: "oo OH-voo", emoji: "🥚" },
+    { pt: "Enorme!", en: "Enormous!", pr: "eh-NOR-meh", emoji: "🐘" },
+    { pt: "A selva", en: "The jungle", pr: "ah SEL-vah", emoji: "🌿" },
+    { pt: "Pré-histórico", en: "Prehistoric", pr: "preh ish-TOH-ree-koo", emoji: "🪨" },
+  ]},
+  { id: "minecraft", label: "Build & Craft", emoji: "⛏️", color: "#92400e", bg: "#fef3c7", galo: "thinking", phrases: [
+    { pt: "Construir", en: "To build", pr: "kon-stroo-EER", emoji: "🏗️" },
+    { pt: "A pedra", en: "The stone", pr: "ah PEH-drah", emoji: "🪨" },
+    { pt: "A madeira", en: "The wood", pr: "ah mah-DAY-rah", emoji: "🪵" },
+    { pt: "O ouro", en: "The gold", pr: "oo OH-roo", emoji: "🥇" },
+    { pt: "O monstro", en: "The monster", pr: "oo MON-stroo", emoji: "👾" },
+    { pt: "A espada", en: "The sword", pr: "ah esh-PAH-dah", emoji: "⚔️" },
+    { pt: "Sobreviver!", en: "Survive!", pr: "soh-breh-vee-VAIR", emoji: "❤️" },
+    { pt: "Modo criativo", en: "Creative mode", pr: "MOH-doo kree-ah-TEE-voo", emoji: "🎨" },
+  ]},
+  { id: "food2", label: "More Food!", emoji: "🍜", color: "#b45309", bg: "#fef3c7", galo: "excited", phrases: [
+    { pt: "O hambúrguer", en: "The burger", pr: "oo am-BOOR-gair", emoji: "🍔" },
+    { pt: "As batatas fritas", en: "French fries", pr: "ash bah-TAH-tash FREE-tash", emoji: "🍟" },
+    { pt: "O chocolate", en: "The chocolate", pr: "oo shoh-koh-LAH-teh", emoji: "🍫" },
+    { pt: "A sobremesa", en: "The dessert", pr: "ah soh-breh-MAY-zah", emoji: "🍮" },
+    { pt: "Está quente!", en: "It's hot!", pr: "esh-TAH KEN-teh", emoji: "🌡️" },
+    { pt: "Mais um!", en: "One more!", pr: "mysh oom", emoji: "🙋" },
+    { pt: "O petisco", en: "The snack", pr: "oo peh-TEESH-koo", emoji: "🍿" },
+    { pt: "Que saboroso!", en: "How tasty!", pr: "keh sah-boh-ROH-zoo", emoji: "😋" },
+  ]},
+  { id: "numbers2", label: "Big Numbers", emoji: "🔢", color: "#7c3aed", bg: "#f5f3ff", galo: "thinking", phrases: [
+    { pt: "Onze", en: "Eleven", pr: "ON-zeh", emoji: "1️⃣1️⃣" },
+    { pt: "Vinte", en: "Twenty", pr: "VEEN-teh", emoji: "2️⃣0️⃣" },
+    { pt: "Trinta", en: "Thirty", pr: "TREEN-tah", emoji: "3️⃣0️⃣" },
+    { pt: "Cinquenta", en: "Fifty", pr: "seen-KWEN-tah", emoji: "5️⃣0️⃣" },
+    { pt: "Cem", en: "One hundred", pr: "sem", emoji: "💯" },
+    { pt: "Mil", en: "One thousand", pr: "meel", emoji: "🔝" },
+    { pt: "Quantos anos tens?", en: "How old are you?", pr: "KWAN-toosh AN-oosh tens", emoji: "🎂" },
+    { pt: "Tenho nove anos!", en: "I am nine years old!", pr: "TEN-yoo NOV-eh AN-oosh", emoji: "9️⃣" },
+  ]},
 ];
 
 const JACK_PRAISE = [
@@ -1300,7 +1360,16 @@ function JacksCorner({ onBack }) {
       const next = qi + 1;
       const finished = next >= phrases.length || newLives <= 0;
       if (finished) {
-        setXP(x => x + newXP);
+        setXP(x => {
+          const next = x + newXP;
+          try {
+            const lb = JSON.parse(localStorage.getItem("pt_leaderboard") || "{}");
+            if (!lb.jack) lb.jack = {};
+            lb.jack.jackXP = next;
+            localStorage.setItem("pt_leaderboard", JSON.stringify(lb));
+          } catch {}
+          return next;
+        });
         const passed = newXP >= phrases.length * JACK_XP * 0.6 && newLives > 0;
         if (passed) playSound("complete");
         if (passed && li + 1 < JACK_LEVELS.length && !unlocked.includes(li + 1)) {
@@ -1681,24 +1750,24 @@ function Home({ onNavigate, progress, favorites, currentProfileId }) {
 // ── LEADERBOARD & FAMILY PROGRESS ───────────────────────────────────────────
 function FamilyProgress({ currentProfileId }) {
   const profiles = PROFILES;
+  // Read from shared leaderboard first, fall back to individual keys
+  const sharedLB = (() => { try { return JSON.parse(localStorage.getItem("pt_leaderboard") || "{}"); } catch { return {}; } })();
+  const jackXPShared = (() => { try { return JSON.parse(localStorage.getItem("jack_xp") || "0"); } catch { return 0; } })();
+  const jackStreakShared = (() => { try { return (JSON.parse(localStorage.getItem("jack_streak") || "{}")).count || 0; } catch { return 0; } })();
+
   const data = profiles.map(p => {
-    let progress = { phrasesCorrect: 0, quizzesCompleted: 0, streak: 0 };
-    let jackXP = 0;
-    let jackStreak = 0;
-    try {
-      const stored = localStorage.getItem("pt_progress_" + p.id);
-      if (stored) progress = JSON.parse(stored);
-      if (p.id === "jack") {
-        const xp = localStorage.getItem("jack_xp");
-        if (xp) jackXP = JSON.parse(xp);
-        const st = localStorage.getItem("jack_streak");
-        if (st) jackStreak = (JSON.parse(st) || {}).count || 0;
-      }
-    } catch {}
+    // Use shared leaderboard data if available, else individual localStorage
+    let progress = sharedLB[p.id] || (() => {
+      try { return JSON.parse(localStorage.getItem("pt_progress_" + p.id) || "{}"); } catch { return {}; }
+    })();
+    progress = { phrasesCorrect: 0, quizzesCompleted: 0, streak: 0, ...progress };
+    
+    const jackXP = p.id === "jack" ? (sharedLB.jack?.jackXP || jackXPShared) : 0;
+    const jackStreak = p.id === "jack" ? jackStreakShared : 0;
     const pct = Math.round((progress.phrasesCorrect / TOTAL_PHRASES) * 100);
     const mult = XP_MULTIPLIER[p.id] || 1;
     const baseScore = progress.quizzesCompleted * 10 + progress.phrasesCorrect * 2;
-    const score = p.id === "jack" ? (baseScore + jackXP) * mult : baseScore;
+    const score = p.id === "jack" ? Math.round((baseScore + jackXP) * mult) : baseScore;
     const streak = p.id === "jack" ? jackStreak : (progress.streak || 0);
     return { ...p, progress, pct, jackXP, score, streak };
   }).sort((a, b) => b.score - a.score);
@@ -1798,16 +1867,31 @@ function ProfileApp({ profile, onSwitch }) {
   }
 
   function handleComplete(type, correct) {
-    setProgress(p => ({
-      ...p,
-      phrasesCorrect: Math.min(TOTAL_PHRASES, p.phrasesCorrect + (correct || 1)),
-      quizzesCompleted: p.quizzesCompleted + 1,
-    }));
+    setProgress(p => {
+      const next = {
+        ...p,
+        phrasesCorrect: Math.min(TOTAL_PHRASES, p.phrasesCorrect + (correct || 1)),
+        quizzesCompleted: p.quizzesCompleted + 1,
+      };
+      // Write to shared leaderboard
+      try {
+        const lb = JSON.parse(localStorage.getItem("pt_leaderboard") || "{}");
+        lb[pid] = next;
+        localStorage.setItem("pt_leaderboard", JSON.stringify(lb));
+      } catch {}
+      return next;
+    });
     if (type === "daily") {
       const today = new Date().toDateString();
       setProgress(p => {
         const yest = new Date(); yest.setDate(yest.getDate() - 1);
-        return { ...p, lastDaily: today, streak: p.lastDaily === yest.toDateString() ? p.streak + 1 : p.lastDaily === today ? p.streak : 1 };
+        const next = { ...p, lastDaily: today, streak: p.lastDaily === yest.toDateString() ? p.streak + 1 : p.lastDaily === today ? p.streak : 1 };
+        try {
+          const lb = JSON.parse(localStorage.getItem("pt_leaderboard") || "{}");
+          lb[pid] = next;
+          localStorage.setItem("pt_leaderboard", JSON.stringify(lb));
+        } catch {}
+        return next;
       });
     }
   }
